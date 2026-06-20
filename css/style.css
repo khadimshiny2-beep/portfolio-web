@@ -1,0 +1,555 @@
+/* =============================================
+   PORTFOLIO — Ahmadoul Khadim Guèye
+   Design : sombre/tech avec accent violet-bleu
+   ============================================= */
+
+/* ---------- Reset & Variables ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0f1117;
+  --surface:   #1a1d27;
+  --surface2:  #22263a;
+  --accent:    #6c63ff;
+  --accent2:   #a78bfa;
+  --text:      #e2e8f0;
+  --muted:     #8892a4;
+  --border:    #2e3347;
+  --radius:    10px;
+  --transition: 0.25s ease;
+  --font-main: 'Segoe UI', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.7;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ---------- Liens ---------- */
+a {
+  color: var(--accent2);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: #fff; }
+
+/* =============================================
+   HEADER
+   ============================================= */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+}
+
+header .site-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent2);
+  letter-spacing: 0.04em;
+}
+
+/* =============================================
+   NAV
+   ============================================= */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 12px 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--accent2);
+  border-bottom-color: var(--accent);
+}
+
+/* =============================================
+   MESSAGE DE BIENVENUE (JS Fonction 1)
+   ============================================= */
+#welcome-banner {
+  display: none;
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+  color: #fff;
+  text-align: center;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+#welcome-banner .close-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 24px;
+  text-align: center;
+  transition: background var(--transition);
+}
+#welcome-banner .close-btn:hover { background: rgba(255,255,255,0.35); }
+
+/* =============================================
+   MAIN CONTAINER
+   ============================================= */
+main, .page-content {
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+/* =============================================
+   TITRE DE PAGE
+   ============================================= */
+.titredepage {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: none;
+  margin-bottom: 40px;
+}
+
+/* =============================================
+   INDEX — Bloc présentation
+   ============================================= */
+#block1 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  margin-bottom: 48px;
+}
+
+#profile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#index {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+#index b { color: var(--accent2); }
+
+/* ---------- Titres de sections ---------- */
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1rem;
+  color: var(--accent2);
+  margin: 32px 0 12px;
+}
+
+/* ---------- Listes ---------- */
+ul[type], ol {
+  padding-left: 24px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+ul[type] li, ol li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Definition list (infos étudiant) ---------- */
+dl {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px 16px;
+  margin-bottom: 32px;
+}
+
+dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+dd {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* =============================================
+   CARDS (réutilisable : projets, parcours…)
+   ============================================= */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 20px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.card .tag {
+  background: var(--surface2);
+  color: var(--accent2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.card .description {
+  color: var(--muted);
+  font-size: 0.93rem;
+  margin-top: 10px;
+}
+
+/* ---------- Bouton "Voir plus" (Fonction 2 JS) ---------- */
+.card .extra-info {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.card .extra-info.visible {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.card img.projet-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-top: 14px;
+}
+
+/* =============================================
+   BOUTONS
+   ============================================= */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #5a52e0;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+}
+
+/* =============================================
+   COMPÉTENCES — barres de progression
+   ============================================= */
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item .skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.skill-item .skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.skill-item .skill-pct {
+  font-size: 0.8rem;
+  color: var(--accent2);
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.8s ease;
+}
+
+.skill-details {
+  display: none;
+  margin-top: 8px;
+  font-size: 0.83rem;
+  color: var(--muted);
+  padding-left: 4px;
+}
+.skill-details.visible {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* =============================================
+   À PROPOS — timeline parcours
+   ============================================= */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.timeline-item .year {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* =============================================
+   FORMULAIRE CONTACT
+   ============================================= */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Messages d'erreur / succès (Fonction 3 JS) */
+.field-error {
+  font-size: 0.8rem;
+  color: #f87171;
+  margin-top: 6px;
+  display: none;
+}
+
+.field-error.visible { display: block; }
+
+.form-feedback {
+  display: none;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.form-feedback.success {
+  display: block;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid #34d399;
+  color: #34d399;
+}
+
+.form-feedback.error {
+  display: block;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid #f87171;
+  color: #f87171;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 80px;
+}
+
+/* =============================================
+   ANIMATIONS UTILITAIRES
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 640px) {
+  header { padding: 12px 20px; }
+  nav { padding: 0 16px; }
+  nav ul li a { padding: 10px 12px; font-size: 0.82rem; }
+  main, .page-content { margin: 28px auto; padding: 0 16px; }
+  #block1 { flex-direction: column; text-align: center; gap: 20px; }
+  dl { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+}

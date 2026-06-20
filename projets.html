@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projets — Khadim Guèye</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .projet-img {
+      width: 60%;
+      max-width: 400px;
+      display: block;
+      margin: 14px auto 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="welcome-banner">
+    👋 Bienvenue sur mon portfolio ! Bonne visite.
+    <button class="close-btn" id="close-banner">×</button>
+  </div>
+
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4E0BAQH__4XkuSqRZA/company-logo_200_200/company-logo_200_200/0/1711714375397/campus_franco_sngalais_logo?e=2147483647&v=beta&t=eXFE8LnIj4N0o_kCzlevlXfT1Qt3oB-_aqcLISq0W1o" alt="Logo URDFS"/>
+    <span class="site-name">Khadim Guèye · LDIA</span>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="projets.html">Mes projets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p class="titredepage">Mes projets</p>
+
+    <!-- Projet 1 -->
+    <div class="card">
+      <h3>Analyse Transport Urbain</h3>
+      <p class="description">
+        Génération d'un dataset de transport, analyse statistique complète
+        (moyenne, variance, distributions) et présentation des résultats.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Statistiques</span>
+        <span class="tag">Word</span>
+      </div>
+      <div class="extra-info" id="extra-projet1">
+        <p>
+          Ce projet a été réalisé dans le cadre du cours de Statistiques et Probabilités.
+          Il comprend la génération de données simulées pour le transport urbain à Dakar,
+          le calcul d'indicateurs statistiques (moyenne, médiane, écart-type, quartiles)
+          et la visualisation des tendances. Le rapport final a été présenté en PowerPoint.
+        </p>
+        <img class="projet-img" src="images/statistics.jpg" alt="Transport Urbain" />
+      </div>
+      <br/>
+      <button class="btn btn-ghost" id="btn-projet1" onclick="toggleProjet('projet1')">Voir plus</button>
+    </div>
+
+    <!-- Projet 2 -->
+    <div class="card">
+      <h3>Pipeline de nettoyage de données patients</h3>
+      <p class="description">
+        Script Python pur (sans pandas) pour nettoyer, valider et exporter
+        300 enregistrements de patients depuis un fichier CSV.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">CSV</span>
+        <span class="tag">Data Cleaning</span>
+      </div>
+      <div class="extra-info" id="extra-projet2">
+        <p>
+          Projet de preprocessing médical développé en Python natif.
+          Structure modulaire avec des fichiers séparés pour la lecture, la validation,
+          le nettoyage et l'export. Gestion des valeurs manquantes, des doublons et
+          des formats incorrects (dates, numéros de téléphone, âges hors plage).
+        </p>
+        <img class="projet-img" src="images/python.jpg" alt="Data Cleaning" />
+      </div>
+      <br/>
+      <button class="btn btn-ghost" id="btn-projet2" onclick="toggleProjet('projet2')">Voir plus</button>
+    </div>
+
+    <!-- Projet 3 -->
+    <div class="card">
+      <h3>Linux CachyOS et Hyprland</h3>
+      <p class="description">
+        Installation de Linux CachyOS et mise en place d'une interface Hyprland
+      </p>
+      <div class="tags">
+        <span class="tag">Linux</span>
+        <span class="tag">Lignes de commandes (CLI)</span>
+        <span class="tag">Hyprland</span>
+      </div>
+      <div class="extra-info" id="extra-projet3">
+        <p>
+          Et voici mon projet préféré! <br> Je me suis beaucoup intéressé Linux ces derniers temps. Cela m'a donc poussé à me mettre à Mint puis à CachyOS qui sont toutes les deux distributions de Linux. Je recommande vraiment!!
+        </p>
+        <img class="projet-img" src="images/hyprland.jpg" alt="Hyprland" />
+      </div>
+      <br/>
+      <button class="btn btn-ghost" id="btn-projet3" onclick="toggleProjet('projet3')">Voir plus</button>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 Ahmadoul Khadim Guèye · LDIA — Université Rose Dieng France Sénégal
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
