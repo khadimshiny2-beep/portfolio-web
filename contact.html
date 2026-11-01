@@ -1,81 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact — Khadim Guèye</title>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
-
-  <div id="welcome-banner">
-    👋 Bienvenue sur mon portfolio ! Bonne visite.
-    <button class="close-btn" id="close-banner">×</button>
-  </div>
-
-  <header>
-    <img src="https://media.licdn.com/dms/image/v2/D4E0BAQH__4XkuSqRZA/company-logo_200_200/company-logo_200_200/0/1711714375397/campus_franco_sngalais_logo?e=2147483647&v=beta&t=eXFE8LnIj4N0o_kCzlevlXfT1Qt3oB-_aqcLISq0W1o" alt="Logo URDFS"/>
-    <span class="site-name">Khadim Guèye · LDIA</span>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="competences.html">Compétences</a></li>
-      <li><a href="projets.html">Mes projets</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <p class="titredepage">Contact</p>
-
-    <form id="form-contact" novalidate>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-        <div class="form-group">
-          <label for="nom">Nom *</label>
-          <input type="text" id="nom" name="nom" placeholder="Guèye" />
-          <span class="field-error" id="err-nom"></span>
-        </div>
-        <div class="form-group">
-          <label for="prenom">Prénom *</label>
-          <input type="text" id="prenom" name="prenom" placeholder="Khadim" />
-          <span class="field-error" id="err-prenom"></span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Adresse e-mail *</label>
-        <input type="email" id="email" name="email" placeholder="khadim@example.com" />
-        <span class="field-error" id="err-email"></span>
-      </div>
-
-      <div class="form-group">
-        <label for="sujet">Sujet *</label>
-        <input type="text" id="sujet" name="sujet" placeholder="Demande de stage, collaboration…" />
-        <span class="field-error" id="err-sujet"></span>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" placeholder="Votre message…"></textarea>
-        <span class="field-error" id="err-message"></span>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Envoyer le message</button>
-
-      <!-- Retour après soumission (Fonction 3 JS) -->
-      <div class="form-feedback" id="form-feedback"></div>
-
-    </form>
-  </main>
-
-  <footer>
-    © 2025 Ahmadoul Khadim Guèye · LDIA — Université Rose Dieng France Sénégal
-  </footer>
-
-  <script src="js/script.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https://avatars.githubusercontent.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | Khadim</title><meta name="description" content="Portfolio de Khadim, étudiant en Data &amp; IA à Dakar.">
+<link rel="stylesheet" href="css/style.css"><script src="js/app.js" defer></script></head>
+<body><div class="crt" aria-hidden="true"></div>
+<header><a class="logo" href="index.html">khadim@wired</a><nav aria-label="Navigation"><a href="index.html">accueil</a><a href="apropos.html">à propos</a><a href="projets.html">projets</a><a href="skills.html">skills</a><a href="contact.html" aria-current=page>contact</a></nav></header>
+<main><p class="eb">CONTACT</p><h1>Écrivez-moi</h1>
+<div class="two"><form id="f" novalidate autocomplete="on">
+<div class="row"><label>Nom *<input name="nom" required maxlength="60" autocomplete="family-name"></label>
+<label>Prénom *<input name="prenom" required maxlength="60" autocomplete="given-name"></label></div>
+<label>Adresse e-mail *<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+<label>Sujet *<input name="sujet" required maxlength="100" placeholder="Demande de stage, collaboration..."></label>
+<label>Message *<textarea name="message" required maxlength="1200" rows="7"></textarea></label>
+<button class="btn" type="submit">envoyer le message</button><p id="msg" role="status"></p></form>
+<ul class="links"><li><span>email</span><a id="mail" href="#">…</a></li>
+<li><span>github</span><a href="https://github.com/khadimshiny2-beep" target="_blank" rel="noopener noreferrer">khadimshiny2-beep</a></li>
+<li><span>linkedin</span><a href="https://www.linkedin.com/in/ahmadoul-khadim-gueye-b503743a6/" target="_blank" rel="noopener noreferrer">ahmadoul-khadim-gueye</a></li></ul></div></main>
+<footer>No matter where you are, everyone is always connected.</footer></body></html>
