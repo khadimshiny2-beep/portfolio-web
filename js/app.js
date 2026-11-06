@@ -2,7 +2,10 @@
 /* Sécurité : contenu externe inséré via textContent uniquement ; URLs validées ; aucun innerHTML. */
 const $ = s => document.querySelector(s);
 const mk = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x) e.textContent = x; return e; };
-const USER = 'khadimshiny2-beep', KEY = 'gh-repos-v1', TTL = 6e5;
+const USER = 'khadimshiny2-beep', KEY = 'gh-repos-v2', TTL = 6e5;
+/* Dépôts épinglés sur github.com/khadimshiny2-beep, dans l'ordre d'affichage.
+   shortcut: l'API REST publique n'expose pas les épinglés, donc liste maintenue à la main, à mettre à jour si les épingles changent. */
+const PINNED = ['portfolio-web', 'Project_survey', 'Cool-python-stuff', 'Nix-Config', 'Project_Python1_LDIA'];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -44,17 +47,18 @@ if (repos) {
     { name: 'portfolio-web', desc: 'Mon portfolio (français).', lang: 'HTML', stars: 2, url: 'https://github.com/khadimshiny2-beep/portfolio-web', date: '' },
     { name: 'Project_survey', desc: "Projet d'algèbre linéaire donné par mon université.", lang: 'Jupyter Notebook', stars: 1, url: 'https://github.com/khadimshiny2-beep/Project_survey', date: '' },
     { name: 'Cool-python-stuff', desc: 'Petits projets Python intéressants trouvés en ligne.', lang: 'Python', stars: 1, url: 'https://github.com/khadimshiny2-beep/Cool-python-stuff', date: '' },
-    { name: 'Nix-Config', desc: 'Ma configuration Nix.', lang: 'Nix', stars: 1, url: 'https://github.com/khadimshiny2-beep/Nix-Config', date: '' }
+    { name: 'Nix-Config', desc: 'Ma configuration Nix.', lang: 'Nix', stars: 1, url: 'https://github.com/khadimshiny2-beep/Nix-Config', date: '' },
+    { name: 'Project_Python1_LDIA', desc: 'Prétraitement et nettoyage de données médicales en Python pur.', lang: 'Python', stars: 2, url: 'https://github.com/khadimshiny2-beep/Project_Python1_LDIA', date: '' }
   ];
   const valid = u => { try { const x = new URL(u); return x.protocol === 'https:' && x.hostname === 'github.com' && x.pathname.startsWith('/' + USER + '/'); } catch { return false; } };
   const load = async () => {
     try { const c = JSON.parse(sessionStorage.getItem(KEY) || 'null'); if (c && Array.isArray(c.d) && Date.now() - c.t < TTL) return c.d; } catch {}
-    const res = await fetch('https://api.github.com/users/' + USER + '/repos?sort=pushed&per_page=30',
+    const res = await fetch('https://api.github.com/users/' + USER + '/repos?sort=pushed&per_page=100',
       { headers: { Accept: 'application/vnd.github+json' }, referrerPolicy: 'no-referrer', credentials: 'omit' });
     if (!res.ok) throw new Error('http ' + res.status);
     const raw = await res.json();
     if (!Array.isArray(raw)) throw new Error('format');
-    const d = raw.filter(r => !r.fork && !r.archived && r.name !== USER).slice(0, 12).map(r => ({
+    const d = PINNED.map(n => raw.find(r => r.name === n)).filter(Boolean).map(r => ({
       name: String(r.name).slice(0, 60), desc: String(r.description || '').slice(0, 160),
       lang: String(r.language || '').slice(0, 24), stars: Number(r.stargazers_count) || 0,
       url: String(r.html_url), date: String(r.pushed_at || '').slice(0, 10) }));
