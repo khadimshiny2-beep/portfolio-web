@@ -22,6 +22,26 @@ const PINNED = [
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/* Révélation au défilement (décoratif : sans JS le contenu reste visible) */
+if (!reduce && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (es) =>
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      }),
+    { rootMargin: "0px 0px -8% 0px" },
+  );
+  document.querySelectorAll("main > *").forEach((el) => {
+    if (el.getBoundingClientRect().top > innerHeight * 0.92) {
+      el.classList.add("reveal");
+      io.observe(el);
+    }
+  });
+}
+
 /* Horloge (accueil) */
 const clk = $("#clk");
 if (clk) {
