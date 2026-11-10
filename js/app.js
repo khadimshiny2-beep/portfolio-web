@@ -58,8 +58,11 @@ if (tw)
   (async () => {
     const lines = [
       "Linux enjoyer & CLI warrior",
-      "just one more rice before I sleep",
-      "still not fully connected",
+      "Data Analyst Junior",
+      "Website Maker",
+      "Aspiring Cybersecurity 'expert'",
+      "'just one more rice before I sleep'",
+      "'still not fully connected'",
     ];
     if (reduce) {
       tw.textContent = lines[0];
