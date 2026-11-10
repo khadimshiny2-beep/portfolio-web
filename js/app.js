@@ -61,7 +61,7 @@ if (tw)
       "Data Analyst Junior",
       "Website Maker",
       "Aspiring Cybersecurity 'expert'",
-      "'just one more rice before I sleep'",
+      "'just one more commit before I sleep'",
       "'still not fully connected'",
     ];
     if (reduce) {
